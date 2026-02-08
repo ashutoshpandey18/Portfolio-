@@ -64,7 +64,7 @@ export default function ProfileOrb({
     >
       {/* Outer glow layer */}
       <div className="absolute -inset-[40%] sm:-inset-[35%] lg:-inset-[30%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.12)_0%,rgba(59,130,246,0.06)_40%,transparent_70%)] blur-[30px] sm:blur-[35px] lg:blur-[40px] opacity-60 sm:opacity-80 lg:opacity-100 animate-[orb-breathe_4s_ease-in-out_infinite]" />
-      
+
       {/* Animated ring - perfectly fitted outside image */}
       <div className="absolute -inset-[2px] sm:-inset-[2.5px] lg:-inset-[3px] rounded-full opacity-50 sm:opacity-60 animate-[orb-spin_12s_linear_infinite] sm:animate-[orb-spin_10s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_65%,rgba(59,130,246,0.4)_78%,rgba(96,165,250,0.5)_88%,rgba(59,130,246,0.4)_96%,transparent_100%)]" />
 

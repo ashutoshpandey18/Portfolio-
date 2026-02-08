@@ -1,3 +1,7 @@
+'use client';
+
+import Reveal from './Reveal';
+
 export default function Experience() {
   const timeline = [
     {
@@ -37,12 +41,14 @@ export default function Experience() {
   return (
     <section id="experience" className="section-spacing">
       <div className="container-tight">
-        <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
-          Experience
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold font-space tracking-tight mb-10">
-          Timeline
-        </h2>
+        <Reveal>
+          <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
+            Experience
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold font-space tracking-tight mb-10">
+            Timeline
+          </h2>
+        </Reveal>
 
         <div className="relative">
           {/* Vertical line */}
@@ -50,31 +56,33 @@ export default function Experience() {
 
           <div className="space-y-8">
             {timeline.map((item, i) => (
-              <div key={i} className="relative pl-8">
-                {/* Dot */}
-                <div
-                  className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 ${
-                    item.current
-                      ? 'border-accent bg-accent/20'
-                      : 'border-border-hover bg-surface'
-                  }`}
-                />
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="relative pl-8">
+                  {/* Dot */}
+                  <div
+                    className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 ${
+                      item.current
+                        ? 'border-accent bg-accent/20'
+                        : 'border-border-hover bg-surface'
+                    }`}
+                  />
 
-                <div className="space-y-1.5">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="text-base font-semibold text-white font-space">
-                      {item.role}
-                    </h3>
-                    <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500">
-                      {item.period}
-                    </span>
+                  <div className="space-y-1.5">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                      <h3 className="text-base font-semibold text-white font-space">
+                        {item.role}
+                      </h3>
+                      <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500">
+                        {item.period}
+                      </span>
+                    </div>
+                    <p className="text-sm text-accent/80 font-medium">{item.company}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-accent/80 font-medium">{item.company}</p>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

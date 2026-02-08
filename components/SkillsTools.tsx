@@ -1,3 +1,7 @@
+'use client';
+
+import Reveal from './Reveal';
+
 export default function SkillsTools() {
   const categories = [
     {
@@ -25,30 +29,34 @@ export default function SkillsTools() {
   return (
     <section id="skills" className="section-spacing">
       <div className="container-tight">
-        <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
-          Tech Stack
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold font-space tracking-tight mb-10">
-          Skills &amp; Tools
-        </h2>
+        <Reveal>
+          <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
+            Tech Stack
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold font-space tracking-tight mb-10">
+            Skills &amp; Tools
+          </h2>
+        </Reveal>
 
         <div className="space-y-6">
           {categories.map((cat, i) => (
-            <div key={i} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-              <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:w-24 shrink-0">
-                {cat.label}
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {cat.tools.map((tool, j) => (
-                  <span
-                    key={j}
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-raised text-neutral-300 border border-border hover:border-accent/30 hover:text-white transition-colors duration-200"
-                  >
-                    {tool}
-                  </span>
-                ))}
+            <Reveal key={i} delay={i * 0.08}>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:w-24 shrink-0">
+                  {cat.label}
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {cat.tools.map((tool, j) => (
+                    <span
+                      key={j}
+                      className="px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-raised text-neutral-300 border border-border hover:border-accent/30 hover:text-white transition-colors duration-200"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
