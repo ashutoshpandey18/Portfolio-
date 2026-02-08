@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from './Reveal';
+import AnimatedDivider from './AnimatedDivider';
 
 export default function Experience() {
   const timeline = [
@@ -87,7 +88,7 @@ export default function Experience() {
           </div>
         </div>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

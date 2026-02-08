@@ -1,4 +1,7 @@
+'use client';
+
 import VideoPreview from './VideoPreview';
+import AnimatedDivider from './AnimatedDivider';
 
 interface Project {
   title: string;
@@ -169,7 +172,7 @@ export default function ProjectHighlights() {
           ))}
         </div>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

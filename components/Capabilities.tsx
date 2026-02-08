@@ -5,6 +5,45 @@ import ProIcon from './ProIcon';
 import Reveal from './Reveal';
 import { StaggerItem } from './StaggerReveal';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useCursorSpotlight } from '@/hooks/useCursorSpotlight';
+import AnimatedDivider from './AnimatedDivider';
+
+function CapabilityCard({ item }: { item: { label: string; icon: LucideIcon } }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const spotlight = useCursorSpotlight(cardRef);
+
+  return (
+    <div ref={cardRef} className="capability-card group relative overflow-hidden">
+      {/* Cursor spotlight */}
+      {spotlight && (
+        <div
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300"
+          style={{
+            opacity: spotlight.opacity * 0.15,
+            background: `radial-gradient(400px circle at ${spotlight.x}px ${spotlight.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`,
+          }}
+        />
+      )}
+
+      {/* Animated border sweep */}
+      <div className="capability-card-border" />
+
+      {/* Inner gradient tint */}
+      <div className="capability-card-glow" />
+
+      {/* Card content */}
+      <div className="capability-card-content">
+        <div className="capability-icon-wrapper">
+          <ProIcon icon={item.icon} size="md" />
+        </div>
+        <span className="capability-label">
+          {item.label}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Capabilities() {
   const items: Array<{ label: string; icon: LucideIcon }> = [
@@ -49,28 +88,12 @@ export default function Capabilities() {
         >
           {items.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="capability-card group">
-                {/* Animated border sweep */}
-                <div className="capability-card-border" />
-
-                {/* Inner gradient tint */}
-                <div className="capability-card-glow" />
-
-                {/* Card content */}
-                <div className="capability-card-content">
-                  <div className="capability-icon-wrapper">
-                    <ProIcon icon={item.icon} size="md" />
-                  </div>
-                  <span className="capability-label">
-                    {item.label}
-                  </span>
-                </div>
-              </div>
+              <CapabilityCard item={item} />
             </StaggerItem>
           ))}
         </motion.div>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

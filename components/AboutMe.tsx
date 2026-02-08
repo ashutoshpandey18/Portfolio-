@@ -1,3 +1,7 @@
+'use client';
+
+import AnimatedDivider from './AnimatedDivider';
+
 export default function AboutMe() {
   return (
     <section id="about" className="section-spacing">
@@ -26,7 +30,7 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

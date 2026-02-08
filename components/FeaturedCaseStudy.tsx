@@ -1,4 +1,7 @@
+'use client';
+
 import AnimatedBorder from './AnimatedBorder';
+import AnimatedDivider from './AnimatedDivider';
 
 export default function FeaturedCaseStudy() {
   return (
@@ -81,7 +84,7 @@ export default function FeaturedCaseStudy() {
           </div>
         </AnimatedBorder>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

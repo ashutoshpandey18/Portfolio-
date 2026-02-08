@@ -1,3 +1,7 @@
+'use client';
+
+import AnimatedDivider from './AnimatedDivider';
+
 export default function GitHubActivity() {
   return (
     <section id="github" className="section-spacing">
@@ -56,7 +60,7 @@ export default function GitHubActivity() {
           </div>
         </div>
       </div>
-      <div className="section-divider mt-20 md:mt-28" />
+      <AnimatedDivider className="mt-20 md:mt-28" />
     </section>
   );
 }

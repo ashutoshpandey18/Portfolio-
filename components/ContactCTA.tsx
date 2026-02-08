@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Github, Linkedin, LucideIcon } from 'lucide-react';
+import { Mail, Github, Linkedin, ArrowUpRight, LucideIcon } from 'lucide-react';
 import ProIcon from './ProIcon';
 import Reveal from './Reveal';
 
@@ -38,7 +38,11 @@ export default function ContactCTA() {
                   className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-hover hover:border-accent/40 text-neutral-300 hover:text-white text-sm font-medium transition-all duration-200 hover:bg-surface-raised"
                 >
                   <ProIcon icon={link.icon} size="sm" />
-                  {link.label}
+                  <span>{link.label}</span>
+                  <ArrowUpRight 
+                    className="w-3.5 h-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+                    strokeWidth={2}
+                  />
                 </a>
               ))}
             </div>
