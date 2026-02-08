@@ -13,15 +13,21 @@ interface ProfileOrbProps {
 export default function ProfileOrb({
   src,
   alt,
-  size = 'w-56 h-56',
+  size = 'w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56',
   githubStreakPercent = 78
 }: ProfileOrbProps) {
   const orbRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Detect touch device
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   useEffect(() => {
     const orb = orbRef.current;
-    if (!orb) return;
+    if (!orb || isTouchDevice) return; // Disable tilt on touch devices
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = orb.getBoundingClientRect();
@@ -45,7 +51,7 @@ export default function ProfileOrb({
       orb.removeEventListener('mousemove', handleMouseMove);
       orb.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [isTouchDevice]);
 
   // GitHub streak ring calculation:
   // circumference = 2 * π * radius (for r=110: ~691)
@@ -58,7 +64,7 @@ export default function ProfileOrb({
   return (
     <div
       ref={orbRef}
-      className={`profile-orb-container ${size} relative`}
+      className={`profile-orb-container ${size} relative mb-8 sm:mb-0`}
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transition: 'transform 0.15s ease-out'
@@ -69,8 +75,8 @@ export default function ProfileOrb({
       <div className="orb-glow-2" />
       <div className="orb-glow-3" />
 
-      {/* Rotating tech ring */}
-      <div className="orb-tech-ring" />
+      {/* Rotating tech ring - hidden on mobile */}
+      <div className="orb-tech-ring hidden sm:block" />
 
       {/* Breathing pulse */}
       <div className="orb-pulse" />

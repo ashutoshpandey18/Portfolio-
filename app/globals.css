@@ -899,6 +899,69 @@
   }
 }
 
+/* ─── Profile Orb: Mobile Responsive Adjustments ─── */
+@media (max-width: 640px) {
+  /* Reduce glow blur and opacity on mobile */
+  .orb-glow-1 {
+    inset: -20%;
+    filter: blur(20px);
+    opacity: 0.6;
+  }
+
+  .orb-glow-2 {
+    inset: -15%;
+    filter: blur(15px);
+    opacity: 0.5;
+  }
+
+  .orb-glow-3 {
+    inset: -10%;
+    filter: blur(10px);
+    opacity: 0.4;
+  }
+
+  /* Thinner ring stroke on mobile (if visible) */
+  .orb-tech-ring {
+    opacity: 0.4;
+  }
+
+  /* Slow down rotation on mobile */
+  .orb-tech-ring {
+    animation-duration: 12s;
+  }
+
+  /* Smaller progress ring stroke */
+  .orb-progress-ring circle {
+    stroke-width: 1.5;
+  }
+
+  .orb-progress-ring circle:last-child {
+    stroke-width: 2;
+  }
+
+  /* Reduce progress ring filter */
+  .orb-progress-ring {
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3));
+  }
+
+  /* Less dramatic pulse on mobile */
+  @keyframes orb-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Disable hover scale on touch */
+  .profile-orb-container:hover .orb-glass-shell {
+    transform: scale(1);
+  }
+}
+
 /* ─── Utility ─── */
 @layer utilities {
   .text-gradient {

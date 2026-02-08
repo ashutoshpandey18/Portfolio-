@@ -1,3 +1,5 @@
+'use client';
+
 import { Mail, Github, Linkedin, LucideIcon } from 'lucide-react';
 import ProIcon from './ProIcon';
 

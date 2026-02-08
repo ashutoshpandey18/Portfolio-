@@ -1,3 +1,5 @@
+'use client';
+
 import { Zap, Mic, Lock, RefreshCw, FileText, Rocket, BarChart3, Smartphone, LucideIcon } from 'lucide-react';
 import ProIcon from './ProIcon';
 
