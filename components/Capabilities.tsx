@@ -1,13 +1,16 @@
+import { Zap, Mic, Lock, RefreshCw, FileText, Rocket, BarChart3, Smartphone, LucideIcon } from 'lucide-react';
+import ProIcon from './ProIcon';
+
 export default function Capabilities() {
-  const items = [
-    { label: 'AI Workflow', icon: '⚡' },
-    { label: 'Voice Systems', icon: '🎙' },
-    { label: 'Secure Auth', icon: '🔐' },
-    { label: 'Realtime APIs', icon: '🔄' },
-    { label: 'OCR Pipelines', icon: '📄' },
-    { label: 'SaaS Platforms', icon: '🚀' },
-    { label: 'Analytics', icon: '📊' },
-    { label: 'PWA Systems', icon: '📱' },
+  const items: Array<{ label: string; icon: LucideIcon }> = [
+    { label: 'AI Workflow', icon: Zap },
+    { label: 'Voice Systems', icon: Mic },
+    { label: 'Secure Auth', icon: Lock },
+    { label: 'Realtime APIs', icon: RefreshCw },
+    { label: 'OCR Pipelines', icon: FileText },
+    { label: 'SaaS Platforms', icon: Rocket },
+    { label: 'Analytics', icon: BarChart3 },
+    { label: 'PWA Systems', icon: Smartphone },
   ];
 
   return (
@@ -24,12 +27,26 @@ export default function Capabilities() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="group flex items-center gap-3 px-4 py-3.5 rounded-xl bg-surface-raised border border-border hover:border-accent/30 transition-colors duration-200"
+              className="capability-card group"
+              style={{
+                animationDelay: `${i * 0.4}s`,
+              }}
             >
-              <span className="text-lg">{item.icon}</span>
-              <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors duration-200">
-                {item.label}
-              </span>
+              {/* Animated border sweep */}
+              <div className="capability-card-border" />
+
+              {/* Inner gradient tint */}
+              <div className="capability-card-glow" />
+
+              {/* Card content */}
+              <div className="capability-card-content">
+                <div className="capability-icon-wrapper">
+                  <ProIcon icon={item.icon} size="md" />
+                </div>
+                <span className="capability-label">
+                  {item.label}
+                </span>
+              </div>
             </div>
           ))}
         </div>

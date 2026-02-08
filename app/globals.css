@@ -191,6 +191,175 @@
   box-shadow: 0 0 24px -6px rgba(59, 130, 246, 0.15);
 }
 
+/* ─── Premium Capability Cards ─── */
+.capability-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(var(--surface-raised), 0.7);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.capability-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.3),
+    0 0 20px -4px rgba(59, 130, 246, 0.2);
+}
+
+/* Animated border sweep */
+.capability-card-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.75rem;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 65%,
+    rgba(59, 130, 246, 0.5) 82%,
+    rgba(96, 165, 250, 0.3) 92%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+  animation: rotate-capability-border 8s linear infinite;
+  pointer-events: none;
+}
+
+.capability-card:hover .capability-card-border {
+  opacity: 1;
+  animation-duration: 6s;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 60%,
+    rgba(59, 130, 246, 0.8) 80%,
+    rgba(96, 165, 250, 0.6) 90%,
+    transparent 100%
+  );
+}
+
+@keyframes rotate-capability-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inner gradient glow */
+.capability-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.03) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.capability-card:hover .capability-card-glow {
+  opacity: 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(96, 165, 250, 0.04) 50%,
+    transparent 100%
+  );
+}
+
+/* Card content */
+.capability-card-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1;
+}
+
+/* Icon wrapper with subtle tint */
+.capability-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.capability-card:hover .capability-icon-wrapper {
+  background: transparent;
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+/* Icon - no emoji styles needed */
+.capability-icon-wrapper svg {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.capability-card:hover .capability-icon-wrapper svg {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Label typography */
+.capability-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 250ms ease;
+}
+
+.capability-card:hover .capability-label {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Responsive - disable hover effects on touch devices */
+@media (hover: none) {
+  .capability-card:hover {
+    transform: none;
+  }
+
+  .capability-card:hover .capability-icon-wrapper {
+    transform: none;
+  }
+
+  .capability-card:hover .capability-icon {
+    transform: none;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .capability-card {
+    padding: 1rem;
+  }
+
+  .capability-icon-wrapper {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
 /* ─── Technical Frame System ─── */
 .technical-frame-container {
   position: relative;
@@ -933,6 +1102,82 @@ html.light .yc-card-border {
     rgba(29, 78, 216, 0.5) 92%,
     transparent 100%
   );
+}
+
+/* ─── Capability Cards (light) ─── */
+html.light .capability-card {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+}
+
+html.light .capability-card:hover {
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.12),
+    0 0 20px -4px rgba(29, 78, 216, 0.15);
+}
+
+html.light .capability-card-border {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 65%,
+    rgba(29, 78, 216, 0.4) 82%,
+    rgba(59, 130, 246, 0.25) 92%,
+    transparent 100%
+  );
+}
+
+html.light .capability-card:hover .capability-card-border {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 60%,
+    rgba(29, 78, 216, 0.7) 80%,
+    rgba(59, 130, 246, 0.5) 90%,
+    transparent 100%
+  );
+}
+
+html.light .capability-card-glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(29, 78, 216, 0.04) 0%,
+    transparent 70%
+  );
+}
+
+html.light .capability-card:hover .capability-card-glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(29, 78, 216, 0.1) 0%,
+    rgba(59, 130, 246, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+html.light .capability-icon-wrapper {
+  background: transparent;
+}
+
+html.light .capability-card:hover .capability-icon-wrapper {
+  background: transparent;
+  box-shadow: none;
+}
+
+html.light .capability-icon-wrapper svg {
+  color: rgba(15, 23, 42, 0.65);
+}
+
+html.light .capability-card:hover .capability-icon-wrapper svg {
+  color: rgba(15, 23, 42, 0.95);
+}
+
+html.light .capability-label {
+  color: rgba(15, 23, 42, 0.8);
+}
+
+html.light .capability-card:hover .capability-label {
+  color: rgba(15, 23, 42, 1);
 }
 
 /* ─── Section Divider (light) ─── */

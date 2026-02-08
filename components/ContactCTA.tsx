@@ -1,8 +1,11 @@
+import { Mail, Github, Linkedin, LucideIcon } from 'lucide-react';
+import ProIcon from './ProIcon';
+
 export default function ContactCTA() {
-  const links = [
-    { label: 'Email', href: 'mailto:your.email@example.com', icon: '✉' },
-    { label: 'GitHub', href: 'https://github.com', icon: '⌘' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: '↗' },
+  const links: Array<{ label: string; href: string; icon: LucideIcon }> = [
+    { label: 'Email', href: 'mailto:your.email@example.com', icon: Mail },
+    { label: 'GitHub', href: 'https://github.com', icon: Github },
+    { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
   ];
 
   return (
@@ -28,9 +31,9 @@ export default function ContactCTA() {
                 href={link.href}
                 target={link.href.startsWith('mailto') ? undefined : '_blank'}
                 rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-hover hover:border-accent/40 text-neutral-300 hover:text-white text-sm font-medium transition-all duration-200 hover:bg-surface-raised"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-hover hover:border-accent/40 text-neutral-300 hover:text-white text-sm font-medium transition-all duration-200 hover:bg-surface-raised"
               >
-                <span>{link.icon}</span>
+                <ProIcon icon={link.icon} size="sm" />
                 {link.label}
               </a>
             ))}
