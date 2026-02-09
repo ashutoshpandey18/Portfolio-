@@ -2,6 +2,8 @@
 
 import Reveal from './Reveal';
 import AnimatedDivider from './AnimatedDivider';
+import GlowBlob from './GlowBlob';
+import GridBackground from './GridBackground';
 
 export default function Experience() {
   const timeline = [
@@ -33,8 +35,9 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="section-spacing">
-      <div className="container-tight">
+    <section id="experience" className="section-spacing relative">
+      <GridBackground />
+      <div className="container-tight relative z-10">
         <Reveal>
           <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
             Experience
@@ -52,6 +55,12 @@ export default function Experience() {
             {timeline.map((item, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="relative pl-8">
+                  {/* Background glow blob */}
+                  <GlowBlob
+                    delay={i * 0.15}
+                    color={i === 0 ? 'indigo' : i === 1 ? 'blue' : 'purple'}
+                  />
+
                   {/* Dot */}
                   <div
                     className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 ${

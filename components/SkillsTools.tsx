@@ -1,7 +1,44 @@
 'use client';
 
+import { useRef, useState } from 'react';
 import Reveal from './Reveal';
 import AnimatedDivider from './AnimatedDivider';
+import GridBackground from './GridBackground';
+import { useCursorSpotlight } from '@/hooks/useCursorSpotlight';
+
+function SkillChip({ children }: { children: string }) {
+  const chipRef = useRef<HTMLSpanElement>(null);
+  const spotlight = useCursorSpotlight(chipRef);
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <span
+      ref={chipRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="skill-chip group relative"
+      style={
+        {
+          '--spotlight-x': `${spotlight?.x ?? 50}%`,
+          '--spotlight-y': `${spotlight?.y ?? 50}%`,
+          '--spotlight-opacity': spotlight?.opacity ?? 0,
+        } as React.CSSProperties
+      }
+    >
+      {/* Light sweep animation */}
+      <span className="skill-chip-sweep" />
+
+      {/* Cursor spotlight */}
+      <span className="skill-chip-spotlight" />
+
+      {/* Border sheen */}
+      <span className="skill-chip-sheen" />
+
+      {/* Content */}
+      <span className="relative z-10">{children}</span>
+    </span>
+  );
+}
 
 export default function SkillsTools() {
   const categories = [
@@ -28,8 +65,9 @@ export default function SkillsTools() {
   ];
 
   return (
-    <section id="skills" className="section-spacing">
-      <div className="container-tight">
+    <section id="skills" className="section-spacing relative">
+      <GridBackground />
+      <div className="container-tight relative z-10">
         <Reveal>
           <p className="text-xs font-medium tracking-widest uppercase text-accent mb-6">
             Tech Stack
@@ -48,12 +86,7 @@ export default function SkillsTools() {
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {cat.tools.map((tool, j) => (
-                    <span
-                      key={j}
-                      className="px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-raised text-neutral-300 border border-border hover:border-accent/30 hover:text-white transition-colors duration-200"
-                    >
-                      {tool}
-                    </span>
+                    <SkillChip key={j}>{tool}</SkillChip>
                   ))}
                 </div>
               </div>

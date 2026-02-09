@@ -39,8 +39,8 @@ export default function ContactCTA() {
                 >
                   <ProIcon icon={link.icon} size="sm" />
                   <span>{link.label}</span>
-                  <ArrowUpRight 
-                    className="w-3.5 h-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+                  <ArrowUpRight
+                    className="w-3.5 h-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     strokeWidth={2}
                   />
                 </a>
