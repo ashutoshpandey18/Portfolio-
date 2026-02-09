@@ -6,36 +6,29 @@ import AnimatedDivider from './AnimatedDivider';
 export default function Experience() {
   const timeline = [
     {
-      role: 'Product Engineer — AI & Systems',
-      company: 'Independent / Freelance',
+      role: 'Full Stack Engineer — Personal Product Experience',
+      company: 'Independent Systems & SaaS Builds',
       period: '2025 — Present',
       current: true,
       description:
-        'Building production-grade AI voice agents, SaaS platforms, and intelligent automation systems for clients and personal products.',
+        'Built production-grade AI voice booking system with state-machine dialogue and admin analytics. Developed SaaS verification platform using OCR, JWT auth, RBAC, and audit logging. Engineered rule-based NLP and automation pipelines without paid AI APIs. Designed and deployed full-stack systems with dashboards and real user workflows. Shipped MERN and NestJS applications with production deployment setups.',
+      tech: 'MERN • NestJS • OCR • Voice AI • Auth • SaaS Systems',
     },
     {
-      role: 'Full-Stack Developer',
-      company: 'UDAASH Platform',
-      period: '2024 — 2025',
-      current: false,
-      description:
-        'Architected and shipped the UDAASH job intelligence platform with AI match scoring, kanban workflows, and PWA support.',
-    },
-    {
-      role: 'Backend & AI Engineer',
-      company: 'Email Automation SaaS',
+      role: 'Full Stack Engineer — Intern',
+      company: 'RD Group Of Industries — Web & App Development Agency',
       period: '2024',
       current: false,
       description:
-        'Built OCR-powered credential extraction pipeline with AI confidence scoring and admin approval workflows.',
+        'Built rate-limiting middleware securing production APIs. Implemented OAuth authentication and secure session workflows. Integrated WebSockets for real-time updates. Improved API reliability and reduced authentication failures. Configured backend security and CORS protections.',
     },
     {
-      role: 'Systems Developer',
-      company: 'Voice Agent Project',
+      role: 'Full Stack Developer — Freelance',
+      company: 'Freelance Projects',
       period: '2024',
       current: false,
       description:
-        'Designed and deployed a conversational voice booking agent with state machine architecture and real-time slot management.',
+        'Delivered full-stack real estate platform with advanced search and admin dashboard. Built REST APIs and optimized database query performance. Implemented role-based access and secure media upload flows. Developed responsive frontend and production backend services. Supported client feature delivery and deployment.',
     },
   ];
 
