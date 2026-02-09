@@ -2,6 +2,47 @@
 
 import VideoPreview from './VideoPreview';
 import AnimatedDivider from './AnimatedDivider';
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNodedotjs,
+  SiTypescript,
+  SiPostgresql,
+  SiPrisma,
+  SiNestjs,
+  SiJsonwebtokens,
+} from 'react-icons/si';
+import { IconType } from 'react-icons';
+
+// Tech icon mapping
+const techIcons: Record<string, IconType> = {
+  MongoDB: SiMongodb,
+  'Express.js': SiExpress,
+  React: SiReact,
+  'Node.js': SiNodedotjs,
+  TypeScript: SiTypescript,
+  'Web Speech API': SiReact, // Using React icon as fallback
+  JWT: SiJsonwebtokens,
+  bcrypt: SiNodedotjs, // Using Node icon as fallback
+  NestJS: SiNestjs,
+  PostgreSQL: SiPostgresql,
+  Prisma: SiPrisma,
+  'Tesseract.js': SiNodedotjs, // Using Node icon as fallback
+  'Brevo API': SiNodedotjs, // Using Node icon as fallback
+};
+
+// Tech tag component with icon
+function TechTag({ tech }: { tech: string }) {
+  const Icon = techIcons[tech];
+
+  return (
+    <span className="tech-tag group">
+      {Icon && <Icon className="tech-tag-icon" />}
+      <span className="tech-tag-label">{tech}</span>
+    </span>
+  );
+}
 
 interface Project {
   title: string;
@@ -33,7 +74,16 @@ const projects: Project[] = [
       'Admin analytics dashboard with conversation insights',
       'Comprehensive conversation logging and replay system',
     ],
-    tech: ['Python', 'FastAPI', 'PostgreSQL', 'WebSockets', 'NLP'],
+    tech: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'TypeScript',
+      'Web Speech API',
+      'JWT',
+      'bcrypt',
+    ],
     links: { live: '#', github: '#', caseStudy: '#' },
   },
   {
@@ -50,7 +100,7 @@ const projects: Project[] = [
       'Secure credential delivery via encrypted channels',
       'Full audit logging for compliance and tracking',
     ],
-    tech: ['Node.js', 'React', 'MongoDB', 'Tesseract', 'OpenAI'],
+    tech: ['NestJS', 'PostgreSQL', 'Prisma', 'React', 'Tesseract.js', 'Brevo API', 'JWT'],
     links: { live: '#', github: '#', caseStudy: '#' },
   },
   {
@@ -109,14 +159,9 @@ function ProjectCard({ project }: { project: Project }) {
         </ul>
 
         {/* Tech Chips */}
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {project.tech.map((tech, i) => (
-            <span
-              key={i}
-              className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-surface-overlay text-neutral-400 border border-border"
-            >
-              {tech}
-            </span>
+            <TechTag key={i} tech={tech} />
           ))}
         </div>
 

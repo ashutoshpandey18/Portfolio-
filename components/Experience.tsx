@@ -70,19 +70,22 @@ export default function Experience() {
                     }`}
                   />
 
-                  <div className="space-y-1.5">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                      <h3 className="text-base font-semibold text-white font-space">
-                        {item.role}
-                      </h3>
-                      <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500">
-                        {item.period}
-                      </span>
+                  {/* Experience Card with Animated Border */}
+                  <div className="experience-card">
+                    <div className="space-y-1.5">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <h3 className="text-base font-semibold text-white font-space">
+                          {item.role}
+                        </h3>
+                        <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500">
+                          {item.period}
+                        </span>
+                      </div>
+                      <p className="text-sm text-accent/80 font-medium">{item.company}</p>
+                      <p className="text-sm text-neutral-400 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
-                    <p className="text-sm text-accent/80 font-medium">{item.company}</p>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
                 </div>
               </Reveal>
