@@ -62,22 +62,64 @@ export default function ProfileOrb({
         transformStyle: 'preserve-3d'
       }}
     >
-      {/* Outer glow layer */}
-      <div className="absolute -inset-[40%] sm:-inset-[35%] lg:-inset-[30%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.12)_0%,rgba(59,130,246,0.06)_40%,transparent_70%)] blur-[30px] sm:blur-[35px] lg:blur-[40px] opacity-60 sm:opacity-80 lg:opacity-100 animate-[orb-breathe_4s_ease-in-out_infinite]" />
+      {/* Layer 1: Ambient halo - soft blue radial gradient with heavy blur */}
+      <div
+        className="absolute -inset-6 rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(96, 165, 250, 0.12) 35%, rgba(147, 197, 253, 0.06) 60%, transparent 100%)',
+          filter: 'blur(32px)',
+          opacity: 0.2,
+          animation: 'breathe 6s ease-in-out infinite alternate',
+          willChange: 'transform'
+        }}
+      />
 
-      {/* Animated ring - perfectly fitted outside image */}
-      <div className="absolute -inset-[2px] sm:-inset-[2.5px] lg:-inset-[3px] rounded-full opacity-50 sm:opacity-60 animate-[orb-spin_12s_linear_infinite] sm:animate-[orb-spin_10s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_65%,rgba(59,130,246,0.4)_78%,rgba(96,165,250,0.5)_88%,rgba(59,130,246,0.4)_96%,transparent_100%)]" />
+      {/* Layer 2: Blurred accent glow ring - sits behind image */}
+      <div
+        className="absolute -inset-2 rounded-full pointer-events-none blur-lg"
+        style={{
+          background: 'radial-gradient(circle, transparent 45%, rgba(59, 130, 246, 0.4) 48%, rgba(59, 130, 246, 0.42) 52%, transparent 55%)',
+          opacity: 0.42,
+          animation: 'breathe 6s ease-in-out infinite alternate',
+          willChange: 'transform'
+        }}
+      />
 
-      {/* Image container */}
-      <div className="relative w-full h-full rounded-full overflow-hidden">
+      {/* Image container with Layer 3: Feathered edge mask + Layer 4: Breathing motion */}
+      <div
+        className="relative w-full h-full rounded-full overflow-hidden"
+        style={{
+          animation: 'breathe 6s ease-in-out infinite alternate',
+          willChange: 'transform'
+        }}
+      >
+        {/* White background for light theme blending */}
+        <div className="absolute inset-0 bg-white dark:bg-transparent rounded-full" />
+
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-cover"
+          className="object-cover relative z-10"
+          style={{
+            maskImage: 'radial-gradient(circle, black 60%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.5) 90%, transparent 100%)',
+            WebkitMaskImage: 'radial-gradient(circle, black 60%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.5) 90%, transparent 100%)'
+          }}
           priority
         />
       </div>
+
+      {/* Global animation keyframes injected via style tag */}
+      <style jsx>{`
+        @keyframes breathe {
+          from {
+            transform: scale(1);
+          }
+          to {
+            transform: scale(1.03);
+          }
+        }
+      `}</style>
     </div>
   );
 }

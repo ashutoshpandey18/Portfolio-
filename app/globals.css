@@ -744,6 +744,131 @@
   }
 }
 
+/* ─── Product Screenshot Component ─── */
+.product-screenshot-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: rgb(var(--surface));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.product-screenshot-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%; /* 5:3 aspect ratio for product screenshots */
+}
+
+.product-screenshot-inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.yc-project-card:hover .product-screenshot-inner {
+  transform: scale(1.03);
+}
+
+.product-screenshot-image {
+  object-fit: cover;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Loading skeleton */
+.product-screenshot-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2s ease-in-out infinite;
+}
+
+.skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-slide 2s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer-slide {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Placeholder fallback */
+.product-screenshot-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+.placeholder-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.placeholder-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.placeholder-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.placeholder-hint {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
 /* ─── Profile Orb Pro ─── */
 .profile-orb-container {
   position: relative;
@@ -1165,6 +1290,55 @@ html.light .yc-card-border {
     rgba(29, 78, 216, 0.5) 92%,
     transparent 100%
   );
+}
+
+/* ─── Product Screenshot (light) ─── */
+html.light .product-screenshot-container {
+  background: rgb(245, 245, 245);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+html.light .product-screenshot-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.04) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+}
+
+html.light .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(29, 78, 216, 0.06) 50%,
+    transparent 100%
+  );
+}
+
+html.light .product-screenshot-placeholder {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.01) 100%
+  );
+}
+
+html.light .placeholder-icon {
+  color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.light .placeholder-text {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+html.light .placeholder-hint {
+  color: rgba(0, 0, 0, 0.35);
 }
 
 /* ─── Capability Cards (light) ─── */
@@ -1715,4 +1889,386 @@ html.light .tech-tag:hover {
     width: 0.75rem;
     height: 0.75rem;
   }
+}
+
+/* ─── Case Study Prose Styles ─── */
+.prose-invert {
+  color: rgba(229, 229, 229, 0.9);
+}
+
+.prose-invert p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  color: rgba(212, 212, 212, 0.85);
+}
+
+.prose-invert h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+}
+
+.prose-invert h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prose-invert ul, .prose-invert ol {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose-invert li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  color: rgba(212, 212, 212, 0.85);
+}
+
+.prose-invert strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.prose-invert code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  padding: 0.125rem 0.375rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  color: rgba(96, 165, 250, 0.9);
+}
+
+.prose-invert a {
+  color: rgb(96, 165, 250);
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.3);
+  transition: all 0.2s;
+}
+
+.prose-invert a:hover {
+  color: rgb(147, 197, 253);
+  text-decoration-color: rgba(147, 197, 253, 0.6);
+}
+
+/* ─── Case Study Components Light Mode ─── */
+html.light .prose-invert {
+  color: rgba(31, 41, 55, 0.9);
+}
+
+html.light .prose-invert p {
+  color: rgba(55, 65, 81, 0.85);
+}
+
+html.light .prose-invert h3 {
+  color: rgba(17, 24, 39, 0.95);
+}
+
+html.light .prose-invert h4 {
+  color: rgba(17, 24, 39, 0.9);
+}
+
+html.light .prose-invert li {
+  color: rgba(55, 65, 81, 0.85);
+}
+
+html.light .prose-invert strong {
+  color: rgba(17, 24, 39, 0.95);
+}
+
+html.light .prose-invert code {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  color: rgba(29, 78, 216, 0.9);
+}
+
+html.light .prose-invert a {
+  color: rgb(29, 78, 216);
+  text-decoration-color: rgba(29, 78, 216, 0.3);
+}
+
+html.light .prose-invert a:hover {
+  color: rgb(37, 99, 235);
+  text-decoration-color: rgba(37, 99, 235, 0.6);
+}
+
+/* ─── Case Study Component Styles ─── */
+.case-study-section-block {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+}
+
+html.light .case-study-section-block {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.case-study-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(163, 163, 163, 1);
+  transition: all 0.2s;
+}
+
+.case-study-back-button:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  color: rgba(255, 255, 255, 1);
+}
+
+html.light .case-study-back-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(75, 85, 99, 1);
+}
+
+html.light .case-study-back-button:hover {
+  border-color: rgba(29, 78, 216, 0.5);
+  color: rgba(17, 24, 39, 1);
+  background: rgba(255, 255, 255, 1);
+}
+
+.case-study-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 8rem;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+html.light .case-study-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.case-study-hero-divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html.light .case-study-hero-divider {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.case-study-button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgb(59, 130, 246);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.case-study-button-primary:hover {
+  background: rgb(37, 99, 235);
+}
+
+html.light .case-study-button-primary {
+  background: rgb(29, 78, 216);
+}
+
+html.light .case-study-button-primary:hover {
+  background: rgb(30, 64, 175);
+}
+
+.case-study-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(163, 163, 163, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.case-study-button-secondary:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  color: white;
+}
+
+html.light .case-study-button-secondary {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(75, 85, 99, 1);
+}
+
+html.light .case-study-button-secondary:hover {
+  border-color: rgba(29, 78, 216, 0.5);
+  color: rgba(17, 24, 39, 1);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Tech Stack Pills */
+.tech-stack-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.tech-stack-pill:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html.light .tech-stack-pill {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+html.light .tech-stack-pill:hover {
+  border-color: rgba(29, 78, 216, 0.4);
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.tech-stack-pill-icon {
+  color: rgb(96, 165, 250);
+  transition: color 0.2s;
+}
+
+.tech-stack-pill:hover .tech-stack-pill-icon {
+  color: rgb(147, 197, 253);
+}
+
+html.light .tech-stack-pill-icon {
+  color: rgb(29, 78, 216);
+}
+
+html.light .tech-stack-pill:hover .tech-stack-pill-icon {
+  color: rgb(30, 64, 175);
+}
+
+.tech-stack-pill-label {
+  font-weight: 500;
+  color: rgba(163, 163, 163, 1);
+  transition: color 0.2s;
+}
+
+.tech-stack-pill:hover .tech-stack-pill-label {
+  color: rgba(212, 212, 212, 1);
+}
+
+html.light .tech-stack-pill-label {
+  color: rgba(75, 85, 99, 1);
+}
+
+html.light .tech-stack-pill:hover .tech-stack-pill-label {
+  color: rgba(31, 41, 55, 1);
+}
+
+/* Diagonal Line Accent */
+.diagonal-line-accent {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 0.75rem;
+}
+
+.diagonal-line-primary {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(59, 130, 246, 0.08) 49%,
+    rgba(96, 165, 250, 0.12) 50%,
+    rgba(59, 130, 246, 0.08) 51%,
+    transparent 52%,
+    transparent 100%
+  );
+  background-size: 400% 400%;
+}
+
+html.light .diagonal-line-primary {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(29, 78, 216, 0.06) 49%,
+    rgba(59, 130, 246, 0.08) 50%,
+    rgba(29, 78, 216, 0.06) 51%,
+    transparent 52%,
+    transparent 100%
+  );
+  background-size: 400% 400%;
+}
+
+.diagonal-line-secondary {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 48.5%,
+    rgba(59, 130, 246, 0.04) 49.5%,
+    rgba(59, 130, 246, 0.04) 50.5%,
+    transparent 51.5%,
+    transparent 100%
+  );
+  background-size: 450% 450%;
+}
+
+html.light .diagonal-line-secondary {
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 48.5%,
+    rgba(29, 78, 216, 0.03) 49.5%,
+    rgba(29, 78, 216, 0.03) 50.5%,
+    transparent 51.5%,
+    transparent 100%
+  );
+  background-size: 450% 450%;
+}
+
+/* Hero Meta Info */
+.case-study-meta-divider {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: rgba(82, 82, 91, 1);
+}
+
+html.light .case-study-meta-divider {
+  background: rgba(161, 161, 170, 1);
+}
+
+.case-study-meta-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(96, 165, 250);
+}
+
+html.light .case-study-meta-tag {
+  color: rgb(29, 78, 216);
 }

@@ -1,3 +1,5 @@
+import { Play } from 'lucide-react';
+
 interface VideoPreviewProps {
   src: string;
   poster?: string;
@@ -21,7 +23,7 @@ export default function VideoPreview({ src, poster }: VideoPreviewProps) {
       ) : (
         <div className="w-full h-full flex items-center justify-center text-neutral-700 text-sm">
           <div className="text-center space-y-1">
-            <div className="text-2xl opacity-40">▶</div>
+            <Play className="mx-auto opacity-40" size={32} strokeWidth={1.5} />
             <span className="text-xs text-neutral-800">Video preview</span>
           </div>
         </div>

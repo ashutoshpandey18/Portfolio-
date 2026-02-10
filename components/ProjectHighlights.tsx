@@ -1,7 +1,8 @@
 'use client';
 
-import VideoPreview from './VideoPreview';
+import ProductScreenshot from './ProductScreenshot';
 import AnimatedDivider from './AnimatedDivider';
+import { ChevronRight, ExternalLink } from 'lucide-react';
 import {
   SiMongodb,
   SiExpress,
@@ -49,7 +50,7 @@ interface Project {
   tag: string;
   date: string;
   description: string;
-  video: string;
+  screenshot: string;
   features: string[];
   tech: string[];
   links: {
@@ -66,7 +67,7 @@ const projects: Project[] = [
     date: 'JAN 2026',
     description:
       'A production-ready voice agent that handles appointment bookings via natural language, with state machine logic and conflict prevention.',
-    video: '',
+    screenshot: '/screenshots/Ai-Voice-agent.png',
     features: [
       'State machine voice agent with 12 states and 40+ transitions',
       'Rule-based NLP for intent recognition and entity extraction',
@@ -84,7 +85,7 @@ const projects: Project[] = [
       'JWT',
       'bcrypt',
     ],
-    links: { live: '#', github: '#', caseStudy: '#' },
+    links: { live: '#', github: 'https://github.com/ashutoshpandey18/AI-Voice-Agent_', caseStudy: '/case-study/voice-booking-agent' },
   },
   {
     title: 'Institutional Email Automation SaaS',
@@ -92,7 +93,7 @@ const projects: Project[] = [
     date: 'NOV 2025',
     description:
       'Enterprise SaaS platform that automates institutional email credential workflows with OCR, AI scoring, and secure delivery.',
-    video: '',
+    screenshot: '/screenshots/college-email-saas.png',
     features: [
       'OCR extraction from PDFs and scanned documents',
       'AI confidence scoring for extracted data validation',
@@ -101,7 +102,7 @@ const projects: Project[] = [
       'Full audit logging for compliance and tracking',
     ],
     tech: ['NestJS', 'PostgreSQL', 'Prisma', 'React', 'Tesseract.js', 'Brevo API', 'JWT'],
-    links: { live: '#', github: '#', caseStudy: '#' },
+    links: { live: '#', github: 'https://github.com/ashutoshpandey18/XYZ', caseStudy: '/case-study/college-email-saas' },
   },
   {
     title: 'UDAASH Job Intelligence Platform',
@@ -109,7 +110,7 @@ const projects: Project[] = [
     date: 'SEP 2025',
     description:
       'AI-powered job intelligence platform with match scoring, kanban workflows, voice input, and a full PWA experience.',
-    video: '',
+    screenshot: '/screenshots/udaash-platform.png',
     features: [
       'AI-powered match scoring for optimal candidate pairing',
       'Kanban workflow management with drag-and-drop',
@@ -118,15 +119,19 @@ const projects: Project[] = [
       'Progressive Web App for seamless mobile experience',
     ],
     tech: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'PWA'],
-    links: { live: '#', github: '#', caseStudy: '#' },
+    links: { live: '#', github: 'https://github.com/ashutoshpandey18/Udaash', caseStudy: '#' },
   },
 ];
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, priority }: { project: Project; priority?: boolean }) {
   return (
     <article className="yc-project-card group">
       <div className="yc-card-border" />
-      <VideoPreview src={project.video} />
+      <ProductScreenshot
+        src={project.screenshot}
+        alt={`${project.title} landing page`}
+        priority={priority}
+      />
 
       {/* Content */}
       <div className="p-5 sm:p-6 space-y-5 bg-surface-raised rounded-b-xl">
@@ -152,7 +157,7 @@ function ProjectCard({ project }: { project: Project }) {
         <ul className="space-y-2">
           {project.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2.5 text-neutral-300">
-              <span className="text-accent text-xs mt-1.5">▸</span>
+              <ChevronRight className="text-accent flex-shrink-0" size={16} strokeWidth={2.5} />
               <span className="text-[13px] leading-relaxed">{feature}</span>
             </li>
           ))}
@@ -172,7 +177,8 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.links.live}
               className="inline-flex items-center gap-1.5 px-4 py-2 bg-accent hover:bg-accent-glow text-white text-xs font-semibold rounded-lg transition-colors duration-200"
             >
-              Demo ↗
+              Demo
+              <ExternalLink size={14} strokeWidth={2.5} />
             </a>
           )}
           {project.links.github && (
@@ -213,7 +219,7 @@ export default function ProjectHighlights() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
-            <ProjectCard key={i} project={project} />
+            <ProjectCard key={i} project={project} priority={i === 0} />
           ))}
         </div>
       </div>

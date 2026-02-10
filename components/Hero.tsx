@@ -39,7 +39,7 @@ export default function Hero() {
 
           <div className="flex justify-center lg:justify-end order-first lg:order-last">
             <ProfileOrb
-              src="/Uday.jpeg"
+              src="/Ashu.jpeg"
               alt="Ashutosh Pandey"
               size="w-56 h-56"
               githubStreakPercent={78}

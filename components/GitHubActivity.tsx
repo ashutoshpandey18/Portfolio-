@@ -1,6 +1,7 @@
 'use client';
 
 import AnimatedDivider from './AnimatedDivider';
+import { ExternalLink } from 'lucide-react';
 
 export default function GitHubActivity() {
   return (
@@ -55,7 +56,7 @@ export default function GitHubActivity() {
               className="inline-flex items-center gap-2 px-5 py-2.5 border border-border-hover hover:border-accent/40 text-neutral-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200"
             >
               View GitHub Profile
-              <span className="text-xs">↗</span>
+              <ExternalLink size={14} strokeWidth={2.5} />
             </a>
           </div>
         </div>

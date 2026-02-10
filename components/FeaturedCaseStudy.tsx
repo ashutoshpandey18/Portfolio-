@@ -2,6 +2,8 @@
 
 import AnimatedBorder from './AnimatedBorder';
 import AnimatedDivider from './AnimatedDivider';
+import ProductScreenshot from './ProductScreenshot';
+import { ArrowRight } from 'lucide-react';
 
 export default function FeaturedCaseStudy() {
   return (
@@ -9,6 +11,15 @@ export default function FeaturedCaseStudy() {
       <div className="container-tight">
         <AnimatedBorder>
           <div className="p-6 sm:p-10">
+            {/* Featured Image */}
+            <div className="mb-8">
+              <ProductScreenshot
+                src="/screenshots/Ai-Voice-agent.png"
+                alt="AI Voice Booking Agent Interface"
+                priority={true}
+              />
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-10">
               {/* Left */}
               <div className="space-y-6">
@@ -41,10 +52,11 @@ export default function FeaturedCaseStudy() {
                 </div>
 
                 <a
-                  href="#"
+                  href="/case-study/voice-booking-agent"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-accent-glow text-white text-sm font-semibold rounded-lg transition-colors duration-200 mt-2"
                 >
-                  Read Case Study <span>→</span>
+                  Read Case Study
+                  <ArrowRight size={16} strokeWidth={2.5} />
                 </a>
               </div>
 
