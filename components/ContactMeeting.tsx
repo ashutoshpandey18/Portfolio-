@@ -20,13 +20,22 @@ export default function ContactMeeting() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted!', formData);
     setStatus('loading');
     setErrorMessage('');
 
+    // Check if API key is available
+    const apiKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!apiKey) {
+      console.error('Web3Forms API key is missing!');
+      setStatus('error');
+      setErrorMessage('Contact form is not configured. Please contact directly via email.');
+      return;
+    }
+
     try {
       const payload = {
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+        access_key: apiKey,
         subject: 'Portfolio Contact — Ashutosh Pandey',
         from_name: 'Portfolio Site',
         name: formData.name,
@@ -34,8 +43,6 @@ export default function ContactMeeting() {
         company: formData.company || 'Not provided',
         message: formData.message,
       };
-
-      console.log('Sending payload:', payload);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -47,7 +54,6 @@ export default function ContactMeeting() {
       });
 
       const result = await response.json();
-      console.log('API Response:', result);
 
       if (result.success) {
         setStatus('success');
