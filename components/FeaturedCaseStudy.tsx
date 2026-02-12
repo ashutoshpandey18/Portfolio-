@@ -14,7 +14,7 @@ export default function FeaturedCaseStudy() {
             {/* Featured Image */}
             <div className="mb-8">
               <ProductScreenshot
-                src="/screenshots/Voice-Booking Agent.png"
+                src="/screenshots/voice-booking-agent.png"
                 alt="AI Voice Booking Agent Interface"
                 priority={true}
               />
