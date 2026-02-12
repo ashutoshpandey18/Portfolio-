@@ -67,7 +67,7 @@ const projects: Project[] = [
     date: 'JAN 2026',
     description:
       'A production-ready voice agent that handles appointment bookings via natural language, with state machine logic and conflict prevention.',
-    screenshot: '/screenshots/Ai-Voice-agent.png',
+    screenshot: '/screenshots/Voice-Booking Agent.png',
     features: [
       'State machine voice agent with 12 states and 40+ transitions',
       'Rule-based NLP for intent recognition and entity extraction',
