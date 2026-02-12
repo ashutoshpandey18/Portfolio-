@@ -85,7 +85,7 @@ const projects: Project[] = [
       'JWT',
       'bcrypt',
     ],
-    links: { live: '#', github: 'https://github.com/ashutoshpandey18/AI-Voice-Agent_', caseStudy: '/case-study/voice-booking-agent' },
+    links: { live: 'https://ai-voice-agent-sigma-six.vercel.app/', github: 'https://github.com/ashutoshpandey18/AI-Voice-Agent_', caseStudy: '/case-study/voice-booking-agent' },
   },
   {
     title: 'Institutional Email Automation SaaS',
@@ -102,7 +102,7 @@ const projects: Project[] = [
       'Full audit logging for compliance and tracking',
     ],
     tech: ['NestJS', 'PostgreSQL', 'Prisma', 'React', 'Tesseract.js', 'Brevo API', 'JWT'],
-    links: { live: '#', github: 'https://github.com/ashutoshpandey18/XYZ', caseStudy: '/case-study/college-email-saas' },
+    links: { live: 'https://xyz-4lq7.vercel.app/', github: 'https://github.com/ashutoshpandey18/XYZ', caseStudy: '/case-study/college-email-saas' },
   },
   {
     title: 'UDAASH Job Intelligence Platform',

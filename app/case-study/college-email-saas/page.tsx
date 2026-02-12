@@ -33,7 +33,7 @@ export default function CollegeEmailSaaSCaseStudy() {
           'Brevo API',
           'JWT',
         ]}
-        liveUrl="#"
+        liveUrl="https://xyz-4lq7.vercel.app/"
         githubUrl="https://github.com/ashutoshpandey18/XYZ"
         tag="Document Intelligence"
         date="NOV 2025"

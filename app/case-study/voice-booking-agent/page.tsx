@@ -32,7 +32,7 @@ export default function VoiceBookingAgentCaseStudy() {
           'JWT',
           'bcrypt',
         ]}
-        liveUrl="#"
+        liveUrl="https://ai-voice-agent-sigma-six.vercel.app/"
         githubUrl="https://github.com/ashutoshpandey18/AI-Voice-Agent_"
         tag="Conversational AI"
         date="JAN 2026"
