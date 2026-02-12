@@ -775,7 +775,9 @@
 }
 
 .product-screenshot-image {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0,0,0,0.02);
   transition: opacity 0.4s ease-in-out;
 }
 
