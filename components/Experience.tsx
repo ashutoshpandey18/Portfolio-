@@ -8,34 +8,45 @@ import GridBackground from './GridBackground';
 export default function Experience() {
   const timeline = [
     {
-      role: 'Full Stack Engineer — Personal Product Experience',
-      company: 'Independent Systems & SaaS Builds',
-      period: '2025 — Present',
+      role: 'Software Engineer',
+      company: 'DentalScan',
+      logo: '/logo/dentalscan.png',
+      period: 'Mar 2026 — Present',
       current: true,
       description:
-        'Built production-grade AI voice booking system with state-machine dialogue and admin analytics. Developed SaaS verification platform using OCR, JWT auth, RBAC, and audit logging. Engineered rule-based NLP and automation pipelines without paid AI APIs. Designed and deployed full-stack systems with dashboards and real user workflows. Shipped MERN and NestJS applications with production deployment setups.',
-      tech: 'MERN • NestJS • OCR • Voice AI • Auth • SaaS Systems',
+        'Working on backend systems and production services • Collaborating with ML and backend teams on scan data processing pipelines • Debugging and improving reliability of platform workflows',
     },
     {
-      role: 'Full Stack Engineer — Intern',
-      company: 'RD Group Of Industries — Web & App Development Agency',
+      role: 'Software Development Engineer Intern',
+      company: 'Momentum Labs',
+      logo: '/logo/momentum-labs.png',
+      period: 'Jan 2026 — Feb 2026',
+      current: false,
+      description:
+        'Contributed to backend development and internal product features • Assisted in API development and debugging workflows • Collaborated with engineering team on internal tooling',
+    },
+    {
+      role: 'Full Stack Intern',
+      company: 'RD Group of Industries',
+      logo: '/logo/rd-industries.png',
+      period: 'Jun 2025 — Aug 2025',
+      current: false,
+      description:
+        'Built rate limiting middleware to secure production APIs • Implemented OAuth authentication and session management • Integrated WebSockets for real time application updates',
+    },
+    {
+      role: 'Full Stack Developer (Freelance)',
+      company: 'Ayush Realtors',
+      logo: '/logo/ayush-realtors.png',
       period: '2024',
       current: false,
       description:
-        'Built rate-limiting middleware securing production APIs. Implemented OAuth authentication and secure session workflows. Integrated WebSockets for real-time updates. Improved API reliability and reduced authentication failures. Configured backend security and CORS protections.',
-    },
-    {
-      role: 'Full Stack Developer — Freelance',
-      company: 'Freelance Projects',
-      period: '2024',
-      current: false,
-      description:
-        'Delivered full-stack real estate platform with advanced search and admin dashboard. Built REST APIs and optimized database query performance. Implemented role-based access and secure media upload flows. Developed responsive frontend and production backend services. Supported client feature delivery and deployment.',
+        'Developed real estate platform with admin dashboard • Built REST APIs and optimized database query performance • Implemented secure media uploads and role based access control',
     },
   ];
 
   return (
-    <section id="experience" className="section-spacing relative">
+    <section id="experience" className="section-spacing relative overflow-x-clip">
       <GridBackground />
       <div className="container-tight relative z-10">
         <Reveal>
@@ -47,14 +58,14 @@ export default function Experience() {
           </h2>
         </Reveal>
 
-        <div className="relative">
+        <div className="relative mx-auto w-full max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-5xl">
           {/* Vertical line */}
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-8 xl:space-y-9">
             {timeline.map((item, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div className="relative pl-8">
+                <div className="relative w-full pl-8 sm:pl-9 md:pl-10">
                   {/* Background glow blob */}
                   <GlowBlob
                     delay={i * 0.15}
@@ -73,15 +84,24 @@ export default function Experience() {
                   {/* Experience Card with Animated Border */}
                   <div className="experience-card">
                     <div className="space-y-1.5">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <h3 className="text-base font-semibold text-white font-space">
-                          {item.role}
-                        </h3>
-                        <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 md:gap-4">
+                        <div className="flex min-w-0 items-start gap-3">
+                          <img
+                            src={item.logo}
+                            alt={`${item.company} Logo`}
+                            className="h-9 w-9 sm:h-10 sm:w-10 rounded-md object-contain shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <h3 className="text-base font-semibold text-white font-space">
+                              {item.role}
+                            </h3>
+                            <p className="text-sm text-accent/80 font-medium">{item.company}</p>
+                          </div>
+                        </div>
+                        <span className="text-[11px] font-medium tracking-widest uppercase text-neutral-500 shrink-0 sm:text-right">
                           {item.period}
                         </span>
                       </div>
-                      <p className="text-sm text-accent/80 font-medium">{item.company}</p>
                       <p className="text-sm text-neutral-400 leading-relaxed">
                         {item.description}
                       </p>

@@ -66,9 +66,9 @@ export default function ProfileOrb({
       <div
         className="absolute -inset-6 rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(96, 165, 250, 0.12) 35%, rgba(147, 197, 253, 0.06) 60%, transparent 100%)',
-          filter: 'blur(32px)',
-          opacity: 0.2,
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(96, 165, 250, 0.08) 35%, rgba(147, 197, 253, 0.04) 60%, transparent 100%)',
+          filter: 'blur(40px)',
+          opacity: 0.15,
           animation: 'breathe 6s ease-in-out infinite alternate',
           willChange: 'transform'
         }}
@@ -76,10 +76,10 @@ export default function ProfileOrb({
 
       {/* Layer 2: Blurred accent glow ring - sits behind image */}
       <div
-        className="absolute -inset-2 rounded-full pointer-events-none blur-lg"
+        className="absolute -inset-2 rounded-full pointer-events-none blur-xl"
         style={{
-          background: 'radial-gradient(circle, transparent 45%, rgba(59, 130, 246, 0.4) 48%, rgba(59, 130, 246, 0.42) 52%, transparent 55%)',
-          opacity: 0.42,
+          background: 'radial-gradient(circle, transparent 40%, rgba(59, 130, 246, 0.15) 48%, rgba(59, 130, 246, 0.18) 52%, transparent 60%)',
+          opacity: 0.25,
           animation: 'breathe 6s ease-in-out infinite alternate',
           willChange: 'transform'
         }}
@@ -87,14 +87,14 @@ export default function ProfileOrb({
 
       {/* Image container with Layer 3: Feathered edge mask + Layer 4: Breathing motion */}
       <div
-        className="relative w-full h-full rounded-full overflow-hidden"
+        className="relative w-full h-full rounded-full overflow-hidden border border-white/10 dark:border-white/5"
         style={{
           animation: 'breathe 6s ease-in-out infinite alternate',
           willChange: 'transform'
         }}
       >
-        {/* White background for light theme blending */}
-        <div className="absolute inset-0 bg-white dark:bg-transparent rounded-full" />
+        {/* Soft background blending */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/60 dark:from-transparent dark:to-transparent rounded-full" />
 
         <Image
           src={src}
