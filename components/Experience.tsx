@@ -11,37 +11,37 @@ export default function Experience() {
       role: 'Software Engineer',
       company: 'DentalScan',
       logo: '/logo/dentalscan.png',
-      period: 'Mar 2026 — Present',
-      current: true,
-      description:
-        'Working on backend systems and production services • Collaborating with ML and backend teams on scan data processing pipelines • Debugging and improving reliability of platform workflows',
-    },
-    {
-      role: 'Software Development Engineer Intern',
-      company: 'Momentum Labs',
-      logo: '/logo/momentum-labs.png',
-      period: 'Jan 2026 — Feb 2026',
+      period: 'Dec 2025 — Mar 2026',
       current: false,
       description:
-        'Contributed to backend development and internal product features • Assisted in API development and debugging workflows • Collaborated with engineering team on internal tooling',
+        'Built and maintained backend systems supporting dental scan processing workflows • Collaborated with ML and backend teams to investigate scan data inconsistencies • Debugged production issues and improved reliability of internal services',
     },
     {
-      role: 'Full Stack Intern',
-      company: 'RD Group of Industries',
+      role: 'Software Engineer',
+      company: 'Momentum Labs',
+      logo: '/logo/momentum-labs.png',
+      period: 'Sep 2025 — Nov 2025',
+      current: false,
+      description:
+        'Contributed to backend product features and internal service architecture • Assisted in API development and debugging workflows • Collaborated with engineers to build internal tools and integrations',
+    },
+    {
+      role: 'Full Stack Engineer Intern',
+      company: 'RD Group Of Industries',
       logo: '/logo/rd-industries.png',
       period: 'Jun 2025 — Aug 2025',
       current: false,
       description:
-        'Built rate limiting middleware to secure production APIs • Implemented OAuth authentication and session management • Integrated WebSockets for real time application updates',
+        'Built rate limiting middleware protecting 8+ API endpoints • Configured CORS policies and integrated WebSockets for real time updates • Implemented secure authentication using NextAuth with Google OAuth • Improved API reliability and reduced authentication errors',
     },
     {
       role: 'Full Stack Developer (Freelance)',
       company: 'Ayush Realtors',
       logo: '/logo/ayush-realtors.png',
-      period: '2024',
+      period: '2024 — 2025',
       current: false,
       description:
-        'Developed real estate platform with admin dashboard • Built REST APIs and optimized database query performance • Implemented secure media uploads and role based access control',
+        'Built full stack real estate platform with advanced property search • Developed REST APIs using Node.js and Express • Optimized MongoDB queries reducing response time significantly • Implemented role based access control and secure media uploads',
     },
   ];
 
