@@ -48,7 +48,7 @@ export default function SkillsTools() {
     },
     {
       label: 'Backend',
-      tools: ['Node.js', 'NestJS', 'FastAPI', 'Express', 'Python'],
+      tools: ['Node.js', 'NestJS', 'FastAPI', 'Express', 'Django'],
     },
     {
       label: 'Database',

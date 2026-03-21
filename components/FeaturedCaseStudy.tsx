@@ -4,6 +4,7 @@ import AnimatedBorder from './AnimatedBorder';
 import AnimatedDivider from './AnimatedDivider';
 import ProductScreenshot from './ProductScreenshot';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function FeaturedCaseStudy() {
   return (
@@ -51,13 +52,13 @@ export default function FeaturedCaseStudy() {
                   ))}
                 </div>
 
-                <a
+                <Link
                   href="/case-study/voice-booking-agent"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-accent-glow text-white text-sm font-semibold rounded-lg transition-colors duration-200 mt-2"
                 >
                   Read Case Study
                   <ArrowRight size={16} strokeWidth={2.5} />
-                </a>
+                </Link>
               </div>
 
               {/* Right */}

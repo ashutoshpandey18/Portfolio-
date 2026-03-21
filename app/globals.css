@@ -124,6 +124,7 @@
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
   border-radius: 0.75rem;
   padding: 2px;
   background: conic-gradient(
@@ -158,6 +159,7 @@
   content: '';
   position: absolute;
   inset: -1px;
+  pointer-events: none;
   border-radius: 0.75rem;
   padding: 1px;
   background: conic-gradient(
