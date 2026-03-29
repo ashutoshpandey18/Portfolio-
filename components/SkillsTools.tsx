@@ -43,24 +43,24 @@ function SkillChip({ children }: { children: string }) {
 export default function SkillsTools() {
   const categories = [
     {
-      label: 'Frontend',
-      tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS'],
+      label: 'Languages',
+      tools: ['C', 'JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS'],
     },
     {
-      label: 'Backend',
-      tools: ['Node.js', 'NestJS', 'FastAPI', 'Express', 'Django'],
+      label: 'Frameworks',
+      tools: ['React.js', 'Node.js', 'Express.js', 'NestJS', 'Django', 'GraphQL', 'Prisma', 'Tailwind CSS'],
     },
     {
-      label: 'Database',
-      tools: ['PostgreSQL', 'MongoDB', 'Prisma', 'Redis'],
+      label: 'Databases',
+      tools: ['MongoDB', 'PostgreSQL', 'SQL'],
     },
     {
-      label: 'AI / ML',
-      tools: ['OpenAI', 'NLP', 'Tesseract OCR', 'LangChain'],
+      label: 'Concepts',
+      tools: ['REST APIs', 'WebSockets', 'JWT', 'OAuth2', 'RBAC', 'Rate Limiting', 'Real-time Systems', 'OCR', 'NLP'],
     },
     {
-      label: 'DevOps',
-      tools: ['Docker', 'AWS', 'CI/CD', 'Vercel', 'Git'],
+      label: 'Tools',
+      tools: ['Git', 'GitHub', 'VS Code', 'Vercel', 'Railway'],
     },
   ];
 

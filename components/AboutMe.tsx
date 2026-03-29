@@ -21,11 +21,9 @@ export default function AboutMe() {
               pipelines that operate at scale with clean, maintainable architecture.
             </p>
             <p>
-              My work spans conversational AI systems with rule-based NLP, secure
-              document processing with OCR, real-time analytics dashboards, and
-              multi-tenant SaaS platforms. Every system I build is designed to be
-              production-ready from day one — optimized for performance, security,
-              and real user workflows.
+              Looking for SDE Intern opportunities at early-stage startups or
+              product-driven companies where I can contribute to real-world backend
+              systems, ship fast, and take ownership of meaningful engineering work.
             </p>
           </div>
         </div>

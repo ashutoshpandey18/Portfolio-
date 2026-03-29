@@ -4,6 +4,7 @@ import ProductScreenshot from './ProductScreenshot';
 import AnimatedDivider from './AnimatedDivider';
 import { ChevronRight, ExternalLink } from 'lucide-react';
 import {
+  SiJavascript,
   SiMongodb,
   SiExpress,
   SiReact,
@@ -18,18 +19,25 @@ import { IconType } from 'react-icons';
 
 // Tech icon mapping
 const techIcons: Record<string, IconType> = {
+  'MERN Stack': SiMongodb,
+  JavaScript: SiJavascript,
   MongoDB: SiMongodb,
   'Express.js': SiExpress,
   React: SiReact,
+  'React.js': SiReact,
   'Node.js': SiNodedotjs,
   TypeScript: SiTypescript,
   'Web Speech API': SiReact, // Using React icon as fallback
+  Recharts: SiReact,
+  PDFKit: SiNodedotjs,
   JWT: SiJsonwebtokens,
   bcrypt: SiNodedotjs, // Using Node icon as fallback
   NestJS: SiNestjs,
   PostgreSQL: SiPostgresql,
   Prisma: SiPrisma,
+  OCR: SiNodedotjs,
   'Tesseract.js': SiNodedotjs, // Using Node icon as fallback
+  'Tesseract OCR': SiNodedotjs,
   'Brevo API': SiNodedotjs, // Using Node icon as fallback
 };
 
@@ -62,64 +70,42 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'AI Voice Booking Agent',
+    title: 'AI Voice Restaurant Booking Agent',
     tag: 'Conversational AI',
     date: 'JAN 2026',
     description:
-      'A production-ready voice agent that handles appointment bookings via natural language, with state machine logic and conflict prevention.',
+      'Built production-grade voice booking system handling 200+ requests/hour with a 9-state conversation flow.',
     screenshot: '/screenshots/voice-booking-agent.png',
     features: [
-      'State machine voice agent with 12 states and 40+ transitions',
-      'Rule-based NLP for intent recognition and entity extraction',
-      'Time slot conflict prevention with pessimistic locking',
-      'Admin analytics dashboard with conversation insights',
-      'Comprehensive conversation logging and replay system',
+      'Built production-grade voice booking system handling 200+ requests/hour with 9-state flow',
+      'Engineered rule-based NLP replacing LLM APIs, saving $200+/month',
+      'Built analytics dashboard with CSV/PDF export reducing manual effort by 70%',
     ],
     tech: [
-      'MongoDB',
-      'Express.js',
-      'React',
-      'Node.js',
+      'MERN Stack',
       'TypeScript',
       'Web Speech API',
       'JWT',
-      'bcrypt',
+      'Recharts',
+      'PDFKit',
     ],
     links: { live: 'https://ai-voice-agent-sigma-six.vercel.app/', github: 'https://github.com/ashutoshpandey18/AI-Voice-Agent_', caseStudy: '/case-study/voice-booking-agent' },
   },
   {
-    title: 'Institutional Email Automation SaaS',
+    title: 'College Email SaaS Platform',
     tag: 'Document Intelligence',
     date: 'NOV 2025',
     description:
-      'Enterprise SaaS platform that automates institutional email credential workflows with OCR, AI scoring, and secure delivery.',
+      'Built SaaS platform automating email provisioning using OCR-based ID extraction.',
     screenshot: '/screenshots/college-email-saas.png',
     features: [
-      'OCR extraction from PDFs and scanned documents',
-      'AI confidence scoring for extracted data validation',
-      'Admin approval workflow with manual override capability',
-      'Secure credential delivery via encrypted channels',
-      'Full audit logging for compliance and tracking',
+      'Built SaaS platform automating email provisioning using OCR-based ID extraction',
+      'Reduced verification time from 15 minutes to 30 seconds (85%+ accuracy)',
+      'Built retry-based email system achieving 98% delivery success',
+      'Developed admin dashboard with RBAC, audit logging, and real-time management',
     ],
-    tech: ['NestJS', 'PostgreSQL', 'Prisma', 'React', 'Tesseract.js', 'Brevo API', 'JWT'],
+    tech: ['NestJS', 'React.js', 'PostgreSQL', 'Prisma', 'Tesseract OCR', 'Brevo API'],
     links: { live: 'https://xyz-4lq7.vercel.app/', github: 'https://github.com/ashutoshpandey18/XYZ', caseStudy: '/case-study/college-email-saas' },
-  },
-  {
-    title: 'UDAASH Job Intelligence Platform',
-    tag: 'Marketplace System',
-    date: 'SEP 2025',
-    description:
-      'AI-powered job intelligence platform with match scoring, kanban workflows, voice input, and a full PWA experience.',
-    screenshot: '/screenshots/udaash-platform.png',
-    features: [
-      'AI-powered match scoring for optimal candidate pairing',
-      'Kanban workflow management with drag-and-drop',
-      'Voice input for accessibility and speed',
-      'Real-time analytics dashboard with actionable insights',
-      'Progressive Web App for seamless mobile experience',
-    ],
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'PWA'],
-    links: { live: '#', github: 'https://github.com/ashutoshpandey18/Udaash', caseStudy: '#' },
   },
 ];
 

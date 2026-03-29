@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Github, Linkedin, ArrowUpRight, LucideIcon } from 'lucide-react';
+import { Mail, Github, Linkedin, Globe, ArrowUpRight, LucideIcon } from 'lucide-react';
 import ProIcon from './ProIcon';
 import Reveal from './Reveal';
 
@@ -8,6 +8,7 @@ export default function ContactCTA() {
   const links: Array<{ label: string; href: string; icon: LucideIcon }> = [
     { label: 'Email', href: 'mailto:ashutoshpandey23june2005@gmail.com', icon: Mail },
     { label: 'GitHub', href: 'https://github.com/ashutoshpandey18', icon: Github },
+    { label: 'Portfolio', href: 'https://portfolio-phi-red-69.vercel.app/', icon: Globe },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ashutosh-pandey-87543b269/', icon: Linkedin },
   ];
 

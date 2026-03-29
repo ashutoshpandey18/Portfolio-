@@ -18,7 +18,7 @@ export default function Hero() {
                 Ashutosh Pandey
               </h1>
               <p className="text-xl sm:text-2xl text-accent font-space font-medium tracking-tight">
-                Product Engineer — AI &amp; Systems
+                Lucknow, Uttar Pradesh, India
               </p>
             </div>
 
