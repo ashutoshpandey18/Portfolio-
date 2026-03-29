@@ -70,6 +70,25 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'InventoryAI — AI-Powered Inventory Decision System',
+    tag: 'Inventory Intelligence',
+    date: 'MAR 2026',
+    description:
+      'SaaS platform transforming inventory management into a data-driven decision system for retail stores.',
+    screenshot: '/screenshots/InventoryAI.png',
+    features: [
+      'Built a SaaS platform transforming inventory management into a data-driven decision system for retail stores',
+      'Implemented stockout prediction using sales velocity and automated reorder recommendations',
+      'Designed dead stock detection and demand-based product insights to optimize inventory decisions',
+      'Developed a natural language inventory assistant for querying stock and insights',
+      'Architected scalable backend with modular services enabling future ML-based demand forecasting',
+      'Frontend is live showcasing product experience',
+      'Backend services and prediction engine are actively being developed',
+    ],
+    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Recharts', 'Framer Motion', 'JWT Auth', 'Zod'],
+    links: { live: '#', github: '#' },
+  },
+  {
     title: 'AI Voice Restaurant Booking Agent',
     tag: 'Conversational AI',
     date: 'JAN 2026',
