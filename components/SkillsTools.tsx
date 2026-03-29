@@ -48,7 +48,7 @@ export default function SkillsTools() {
     },
     {
       label: 'Frameworks',
-      tools: ['React.js', 'Node.js', 'Express.js', 'NestJS', 'Django', 'GraphQL', 'Prisma', 'Tailwind CSS'],
+      tools: ['React.js', 'Node.js', 'Express.js', 'NestJS', 'Prisma', 'Tailwind CSS'],
     },
     {
       label: 'Databases',
