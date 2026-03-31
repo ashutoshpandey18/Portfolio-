@@ -16,7 +16,9 @@ function SkillChip({ children }: { children: string }) {
       ref={chipRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="skill-chip group relative"
+      className={`skill-chip group relative transition-transform duration-200 ${
+        isHovered ? 'scale-[1.02] shadow-[0_0_18px_rgba(59,130,246,0.18)]' : ''
+      }`}
       style={
         {
           '--spotlight-x': `${spotlight?.x ?? 50}%`,
@@ -41,27 +43,58 @@ function SkillChip({ children }: { children: string }) {
 }
 
 export default function SkillsTools() {
-  const categories = [
+  const coreExpertise = [
     {
-      label: 'Languages',
-      tools: ['C', 'JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS'],
+      label: 'Backend Systems',
+      tools: ['Node.js', 'Express', 'NestJS'],
     },
     {
-      label: 'Frameworks',
-      tools: ['React.js', 'Node.js', 'Express.js', 'NestJS', 'Prisma', 'Tailwind CSS'],
+      label: 'Full-Stack Apps',
+      tools: ['Next.js'],
+    },
+    {
+      label: 'API Design',
+      tools: ['REST', 'WebSockets'],
+    },
+    {
+      label: 'Database Design',
+      tools: ['PostgreSQL', 'MongoDB'],
+    },
+    {
+      label: 'Auth & Security',
+      tools: ['JWT', 'OAuth2', 'RBAC'],
+    },
+  ];
+
+  const technologies = [
+    {
+      label: 'Languages',
+      tools: ['JavaScript', 'TypeScript'],
+    },
+    {
+      label: 'Frontend',
+      tools: ['React.js', 'Next.js', 'Tailwind CSS'],
+    },
+    {
+      label: 'Backend',
+      tools: ['Node.js', 'Express', 'NestJS'],
     },
     {
       label: 'Databases',
-      tools: ['MongoDB', 'PostgreSQL', 'SQL'],
-    },
-    {
-      label: 'Concepts',
-      tools: ['REST APIs', 'WebSockets', 'JWT', 'OAuth2', 'RBAC', 'Rate Limiting', 'Real-time Systems', 'OCR', 'NLP'],
+      tools: ['PostgreSQL', 'MongoDB'],
     },
     {
       label: 'Tools',
-      tools: ['Git', 'GitHub', 'VS Code', 'Vercel', 'Railway'],
+      tools: ['Git', 'GitHub', 'Vercel', 'Railway'],
     },
+  ];
+
+  const appliedConcepts = [
+    'Built SSR/SSG apps using Next.js',
+    'Designed secure auth systems using JWT & RBAC',
+    'Implemented real-time features using WebSockets',
+    'Built scalable APIs with rate limiting',
+    'Integrated OCR/NLP features',
   ];
 
   return (
@@ -77,21 +110,70 @@ export default function SkillsTools() {
           </h2>
         </Reveal>
 
-        <div className="space-y-6">
-          {categories.map((cat, i) => (
-            <Reveal key={i} delay={i * 0.08}>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:w-24 shrink-0">
-                  {cat.label}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {cat.tools.map((tool, j) => (
-                    <SkillChip key={j}>{tool}</SkillChip>
-                  ))}
-                </div>
+        <div className="space-y-8">
+          <Reveal>
+            <div className="space-y-4">
+              <h3 className="text-base sm:text-lg font-bold font-space tracking-tight text-white">
+                Core Expertise
+              </h3>
+              <div className="space-y-4">
+                {coreExpertise.map((cat, i) => (
+                  <Reveal key={i} delay={i * 0.06}>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                      <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:w-36 shrink-0">
+                        {cat.label}
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {cat.tools.map((tool, j) => (
+                          <SkillChip key={j}>{tool}</SkillChip>
+                        ))}
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="space-y-4">
+              <h3 className="text-base sm:text-lg font-bold font-space tracking-tight text-white">
+                Technologies
+              </h3>
+              <div className="space-y-4">
+                {technologies.map((cat, i) => (
+                  <Reveal key={i} delay={i * 0.06}>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                      <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:w-28 shrink-0">
+                        {cat.label}
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {cat.tools.map((tool, j) => (
+                          <SkillChip key={j}>{tool}</SkillChip>
+                        ))}
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="space-y-4">
+              <h3 className="text-base sm:text-lg font-bold font-space tracking-tight text-white">
+                Concepts I&apos;ve Applied
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {appliedConcepts.map((concept, i) => (
+                  <Reveal key={i} delay={i * 0.06}>
+                    <SkillChip>{concept}</SkillChip>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
         </div>
       </div>
       <AnimatedDivider className="mt-20 md:mt-28" />
