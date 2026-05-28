@@ -14,6 +14,9 @@ import {
   SiPrisma,
   SiNestjs,
   SiJsonwebtokens,
+  SiSupabase,
+  SiHtml5,
+  SiSocketdotio,
 } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
@@ -39,6 +42,9 @@ const techIcons: Record<string, IconType> = {
   'Tesseract.js': SiNodedotjs, // Using Node icon as fallback
   'Tesseract OCR': SiNodedotjs,
   'Brevo API': SiNodedotjs, // Using Node icon as fallback
+  Supabase: SiSupabase,
+  'HTML5 Canvas': SiHtml5,
+  WebSockets: SiSocketdotio,
 };
 
 // Tech tag component with icon
@@ -69,6 +75,23 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: 'SketchFlow AI — Founder-Grade Visual Website Creator',
+    tag: 'AI Creative IDE',
+    date: 'MAY 2026',
+    description:
+      'A high-fidelity creative IDE designed for zero-latency compilation between drawing canvas drafts and live React outputs.',
+    screenshot: '/screenshots/SketchFlowAI.png',
+    features: [
+      'Engineered an interactive felt-texture sketch deck with custom HTML5 Canvas drawing features',
+      'Implemented real-time imperative DOM syncing between drafting canvas layout and compiled React outputs',
+      'Integrated Supabase backend for persistent user designs, workspace management, and session state',
+      'Designed custom SVG wobble filters for hand-drawn architectural aesthetics and kinetic shockwave UI',
+      'Built a fully-featured digital sketching toolbar, collaboration video sidebar, and desktop-style system dock',
+    ],
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'React.js', 'HTML5 Canvas', 'Vanilla CSS', 'WebSockets'],
+    links: { live: 'https://vibedraw18.vercel.app', github: 'https://github.com/ashutoshpandey18/MoodSwing', caseStudy: '/case-study/sketchflow-ai' },
+  },
   {
     title: 'InventoryAI — AI-Powered Inventory Decision System',
     tag: 'Inventory Intelligence',

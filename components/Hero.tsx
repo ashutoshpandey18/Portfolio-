@@ -1,50 +1,124 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import ProfileOrb from './ProfileOrb';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // easeOutExpo
+      },
+    },
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.06)_0%,_transparent_50%)]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-surface">
+      {/* Extremely clean, subtle background gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.015)_0%,_transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full relative z-10 pt-20 lg:pt-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="max-w-xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              Available for Projects
-            </div>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 w-full relative z-10 py-20 lg:py-0">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 lg:gap-24 items-center">
+          
+          {/* Minimalist Intro Content */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-8 text-left"
+          >
+            {/* Status indicator */}
+            <motion.div 
+              variants={itemVariants}
+              className="inline-flex items-center gap-2.5"
+            >
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+              </span>
+              <span className="text-[10px] font-space font-medium tracking-widest uppercase text-neutral-500">
+                Available for projects
+              </span>
+            </motion.div>
 
+            {/* Name and Tagline */}
             <div className="space-y-3">
-              <h1 className="font-space text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+              <motion.h1 
+                variants={itemVariants}
+                className="font-space text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight"
+              >
                 Ashutosh Pandey
-              </h1>
-              <p className="text-xl sm:text-2xl text-accent font-space font-medium tracking-tight">
+              </motion.h1>
+              
+              <motion.p 
+                variants={itemVariants}
+                className="text-xs font-space font-semibold tracking-widest uppercase text-blue-400"
+              >
                 Product Engineer — AI &amp; Systems
-              </p>
+              </motion.p>
             </div>
 
-            <p className="text-lg text-neutral-300 leading-relaxed">
-              I build real AI and SaaS systems — voice agents, verification platforms, and secure backend workflows — designed for reliability, not just demos.
-            </p>
+            {/* Minimal Description */}
+            <motion.p 
+              variants={itemVariants}
+              className="text-sm sm:text-base text-neutral-400 max-w-md leading-relaxed font-normal font-inter"
+            >
+              I build software. Usually end-to-end, always fast. Specializing in high-agency systems, canvas-level interfaces, and natural voice workflows.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a href="#projects" className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-px active:shadow-sm relative overflow-hidden group">
-                <span className="relative z-10">View Projects</span>
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            {/* Minimal actions */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex items-center gap-8 pt-2"
+            >
+              <a 
+                href="#projects" 
+                className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-blue-400 transition-colors duration-300 group"
+              >
+                <span>Explore projects</span>
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
               </a>
-              <a href="#contact" className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-neutral-200/20 dark:border-neutral-700/30 shadow-sm transition-all duration-200 hover:bg-white/10 hover:shadow-md hover:-translate-y-px active:translate-y-px">
-                <span className="relative z-10">Contact</span>
+              
+              <a 
+                href="#contact" 
+                className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300"
+              >
+                Get in touch
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mt-0">
+          {/* Minimalist Profile Placement */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex justify-center lg:justify-end"
+          >
             <ProfileOrb
               src="/Ashu.jpeg"
               alt="Ashutosh Pandey"
-              size="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]"
+              size="w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] lg:w-[280px] lg:h-[280px]"
               githubStreakPercent={78}
             />
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
