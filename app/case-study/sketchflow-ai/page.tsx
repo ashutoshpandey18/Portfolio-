@@ -56,10 +56,10 @@ export default function SketchFlowAICaseStudy() {
         </p>
         <ul>
           <li>
-            <strong>Disconnected Prototyping:</strong> Design tools like Figma create visual mocks, but don't understand layout logic. Developers must re-write everything from scratch, losing design details in translation.
+            <strong>Disconnected Prototyping:</strong> Design tools like Figma create visual mocks, but don&apos;t understand layout logic. Developers must re-write everything from scratch, losing design details in translation.
           </li>
           <li>
-            <strong>Bloated Absolute Code Generators:</strong> Traditional "design-to-code" tools output absolute-positioned absolute divs, producing unmaintainable code that breaks on responsive screens.
+            <strong>Bloated Absolute Code Generators:</strong> Traditional &quot;design-to-code&quot; tools output absolute-positioned absolute divs, producing unmaintainable code that breaks on responsive screens.
           </li>
           <li>
             <strong>High-Latency Iterations:</strong> Changing a layout means going back to the design board, exporting assets, updating CSS, and redeploying — a loop that takes hours.
@@ -69,7 +69,7 @@ export default function SketchFlowAICaseStudy() {
           </li>
         </ul>
         <p>
-          The challenge was to build a spatial engine that could translate raw drawing paths, hand-drawn boxes, and sketch notes into clean, structured, responsive CSS Flexbox/Grid systems in real time, without losing the physical "felt-pen" aesthetic.
+          The challenge was to build a spatial engine that could translate raw drawing paths, hand-drawn boxes, and sketch notes into clean, structured, responsive CSS Flexbox/Grid systems in real time, without losing the physical &quot;felt-pen&quot; aesthetic.
         </p>
       </SectionBlock>
 
@@ -143,7 +143,7 @@ export default function SketchFlowAICaseStudy() {
             <strong>Spatial Geometry over Heavyweight Vision Models:</strong> Instead of processing the canvas with slow, expensive AI computer vision APIs on every stroke, I built a fast mathematical layout inference engine using 2D geometric grouping algorithms. This achieved sub-15ms parsing speed.
           </li>
           <li>
-            <strong>Imperative DOM Syncing via Custom React Hooks:</strong> Controlled re-renders by executing paint operations directly on the Canvas API, bypassing React's virtual DOM reconciliation loop during high-frequency active drafting phases.
+            <strong>Imperative DOM Syncing via Custom React Hooks:</strong> Controlled re-renders by executing paint operations directly on the Canvas API, bypassing React&apos;s virtual DOM reconciliation loop during high-frequency active drafting phases.
           </li>
           <li>
             <strong>Local Storage with Supabase Sync Throttling:</strong> Local drafts sync instantly at 60fps locally, while Supabase commits are debounced to reduce network overhead and ensure smooth multi-user collaboration.
@@ -164,7 +164,7 @@ export default function SketchFlowAICaseStudy() {
 
         <h3 className="text-2xl font-bold mt-8 mb-4">3. Collaborative Video Sidebar & Real-Time Presence</h3>
         <p>
-          Teams can join the same Workspace, see each other's live cursor positions with active tool pointers, and communicate through a built-in lightweight WebRTC video huddle panel directly inside the workspace sidebar.
+          Teams can join the same Workspace, see each other&apos;s live cursor positions with active tool pointers, and communicate through a built-in lightweight WebRTC video huddle panel directly inside the workspace sidebar.
         </p>
 
         <h3 className="text-2xl font-bold mt-8 mb-4">4. Industrial-Chic System Dock</h3>
