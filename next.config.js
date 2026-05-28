@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [],
     unoptimized: false,
   },
+  optimizeFonts: false,
 }
 
 module.exports = nextConfig
